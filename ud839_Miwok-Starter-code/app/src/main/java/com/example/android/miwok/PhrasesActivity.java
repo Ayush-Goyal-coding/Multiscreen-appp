@@ -35,7 +35,7 @@ public class PhrasesActivity extends AppCompatActivity {
 
         // Keep looping until we've reached the end of the list (which means keep looping
         // as long as the current index position is less than the length of the list)
-        WordAdapter adapter = new WordAdapter (this,words);
+        WordAdapter adapter = new WordAdapter (this,words,R.color.category_phrases);
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(adapter);

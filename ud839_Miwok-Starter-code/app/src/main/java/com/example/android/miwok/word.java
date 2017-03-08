@@ -26,7 +26,7 @@ public class word {
 
     /** Miwok translation for the word */
     private String mMiwokTranslation;
-
+private int resourceiId = -1;                // as no image can have -1 Id
     /**
      * Create a new Word object.
      *
@@ -37,6 +37,11 @@ public class word {
     public word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+    }
+    public word(String defaultTranslation, String miwokTranslation,int ResourceId) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        resourceiId = ResourceId;
     }
 
     /**
@@ -52,5 +57,11 @@ public class word {
     public String getMiwokTranslation() {
         return mMiwokTranslation;
     }
-
+    public int getImageResourceId()
+    {
+        return resourceiId;
+    }
+    public boolean hasImage(){
+        return resourceiId != -1;       // if not equal returns true else false
+    }
 }

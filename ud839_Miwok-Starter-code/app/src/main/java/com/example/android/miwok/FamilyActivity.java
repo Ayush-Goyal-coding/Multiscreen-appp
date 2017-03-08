@@ -14,17 +14,17 @@ public class FamilyActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         ArrayList<word> words = new ArrayList<word>();
-        words.add(new word("Father(own)","chichi"));
-        words.add(new word("Mother(own)","Haha"));
-        words.add(new word("Older Brother(own)","ani"));
-        words.add(new word("Older Sister(own)","ane"));
-        words.add(new word("Younger Brother(own)","otouto"));
-        words.add(new word("Younger Sister(own)","imouto"));
+        words.add(new word("Father(own)","chichi",R.drawable.family_father));
+        words.add(new word("Mother(own)","Haha",R.drawable.family_mother));
+        words.add(new word("Older Brother(own)","ani",R.drawable.family_older_brother));
+        words.add(new word("Older Sister(own)","ane",R.drawable.family_older_sister));
+        words.add(new word("Younger Brother(own)","otouto",R.drawable.family_younger_brother));
+        words.add(new word("Younger Sister(own)","imouto",R.drawable.family_younger_sister));
+        words.add(new word("Mother(someone's)","okaa san",R.drawable.family_mother));
+        words.add(new word("Father(someone's)","otou san",R.drawable.family_father));
+        words.add(new word("Older Brother(someone's)","onii san",R.drawable.family_older_brother));
+        words.add(new word("Older Sister(someone's)","onee san",R.drawable.family_older_sister));
         words.add(new word("in-law","giri no "));
-        words.add(new word("Mother(someone's)","okaa san"));
-        words.add(new word("Father(someone's)","otou san"));
-        words.add(new word("Older Brother(someone's)","onii san"));
-        words.add(new word("Older Sister(someone's)","onee san"));
 
 
         // Find the root view so we can add child views to it
@@ -35,7 +35,7 @@ public class FamilyActivity extends AppCompatActivity {
 
         // Keep looping until we've reached the end of the list (which means keep looping
         // as long as the current index position is less than the length of the list)
-        WordAdapter adapter = new WordAdapter (this,words);
+        WordAdapter adapter = new WordAdapter (this,words,R.color.category_family);
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(adapter);
