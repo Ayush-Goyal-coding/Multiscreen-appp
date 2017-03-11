@@ -13,8 +13,8 @@ public class PhrasesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<word> words = new ArrayList<word>();
-        words.add(new word("Welcome","yōkoso"));
+       final ArrayList<word> words = new ArrayList<word>();
+        words.add(new word("Welcome","yōkoso",R.raw.phrase_are_you_coming));
         words.add(new word("Hello (General greeting)","konnichiwa"));
         words.add(new word("Please (requesting s'thing)","Kudasai"));
         words.add(new word("Please (offering s'thing)","Dozo"));

@@ -16,6 +16,7 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,9 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<word> {
 
     private int colorID;
+    private MediaPlayer mediaPlayer ;
     private static final String LOG_TAG = WordAdapter.class.getSimpleName();
+
 
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
@@ -72,7 +75,7 @@ public class WordAdapter extends ArrayAdapter<word> {
         }
 
         // Get the {@link AndroidFlavor} object located at this position in the list
-        word currentword = getItem(position);
+       final word currentword = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.miworkTextview);
@@ -91,10 +94,24 @@ public class WordAdapter extends ArrayAdapter<word> {
                 textContainer.setBackgroundColor(color);
 
 
+        if (currentword.hasAudio())
+        {
+            textContainer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mediaPlayer = MediaPlayer.create(getContext(), currentword.getAudioResourceId());
+                    mediaPlayer.start();
+                }
+            });
+        }
+
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         numberTextView.setText(currentword.getDefaultTranslation());
+
+
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.icon);
+
         if (currentword.hasImage())
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
         {
@@ -108,6 +125,9 @@ public class WordAdapter extends ArrayAdapter<word> {
         {
             iconView.setVisibility(View.GONE);
         }
+
+
         return listItemView;
+
     }
 }

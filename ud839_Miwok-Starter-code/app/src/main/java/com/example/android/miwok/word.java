@@ -27,6 +27,7 @@ public class word {
     /** Miwok translation for the word */
     private String mMiwokTranslation;
 private int resourceiId = -1;                // as no image can have -1 Id
+  private int AudioResourceID = -1;
     /**
      * Create a new Word object.
      *
@@ -38,10 +39,16 @@ private int resourceiId = -1;                // as no image can have -1 Id
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
     }
-    public word(String defaultTranslation, String miwokTranslation,int ResourceId) {
+    public word( String defaultTranslation, String miwokTranslation,int audioResourceID) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        AudioResourceID = audioResourceID;
+    }
+    public word(String defaultTranslation, String miwokTranslation,int ResourceId,int audioResourceID) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         resourceiId = ResourceId;
+        AudioResourceID = audioResourceID;
     }
 
     /**
@@ -63,5 +70,9 @@ private int resourceiId = -1;                // as no image can have -1 Id
     }
     public boolean hasImage(){
         return resourceiId != -1;       // if not equal returns true else false
+    }
+    public int getAudioResourceId(){return AudioResourceID; }
+    public boolean hasAudio(){
+        return AudioResourceID != -1;
     }
 }
